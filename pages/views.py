@@ -11,3 +11,9 @@ def find(request):
  return render(request, 'pages/find.html')
 def custmer(request):
  return render(request, 'pages/custmer.html')
+def membership(request):
+ return render(request, 'pages/membership.html')
+def shopping(request):
+ return render(request, 'pages/shopping.html')
+def mypage(request):
+ return render(request, 'pages/mypage.html')
