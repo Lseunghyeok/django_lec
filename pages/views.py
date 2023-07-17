@@ -17,3 +17,5 @@ def shopping(request):
  return render(request, 'pages/shopping.html')
 def mypage(request):
  return render(request, 'pages/mypage.html')
+def context(request):
+ return render(request, 'pages/context_list.html')

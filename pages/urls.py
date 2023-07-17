@@ -11,4 +11,5 @@ urlpatterns = [
   path('membership/', views.membership),
   path('shopping/', views.shopping),
   path('mypage/', views.mypage),
+  path('context/', views.context),
 ]
