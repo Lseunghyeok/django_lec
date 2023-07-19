@@ -1,23 +1,18 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    
     <meta charset="UTF-8">
     <title>메인페이지</title>
 </head>
 <body>
+    {% extends 'base.html' %}
+    {% block content %}
     <nav>
-        <a href="/company/">company info</a>
-        <a href="/mysite/">product</a>
-        <a href="/homepage/">homepage</a>
-        <a href="/login/">login</a>
-        <a href="/find/">find</a>
-        <a href="/customer/">customer</a>
-        <a href="/membership/">membership</a>
-        <a href="/shopping/">shopping</a>
-        <a href="/mypage/">mypage</a>
-        <a href="/context/">context</a>
     </nav>
 
 <h1>메인 페이지 입니다</h1>
+{% endblock %}
+
 </body>
 </html>
