@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'mysite',
     'pages',
     'accounts.apps.AccountsConfig',
+    'search_app',
 
 ]
 
