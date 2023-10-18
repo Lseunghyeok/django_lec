@@ -1,9 +1,9 @@
-from django.shortcuts import render
+
+from django.contrib.auth import login
+from django.shortcuts import render,redirect
+from accounts.forms import SignupForm
 
 # Create your views here.
-from django.contrib.auth import login
-from django.shortcuts import render, redirect
-from accounts.forms import SignupForm
 def signup(request):
     if request.method == "POST":
         form = SignupForm(request.POST)
@@ -12,5 +12,14 @@ def signup(request):
             login(request, user)
             return redirect('/')
     else:
-        form = SignupForm()
-    return render(request, 'accounts/signup.html', {'form': form})
+        form=SignupForm()
+    return render(request, 'accounts/signup.html', {'form':form})
+
+def agreement(request):
+    return render(request, 'accounts/agreement.html')
+
+def find_id(request):
+    return render(request, 'accounts/find_id.html')
+
+def find_pw(request):
+    return render(request, 'accounts/find_pw.html')
