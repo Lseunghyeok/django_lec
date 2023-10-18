@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'pages',
     'accounts.apps.AccountsConfig',
     'search_app',
+    'cart',
 
 ]
 
@@ -80,8 +81,13 @@ WSGI_APPLICATION = 'my_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'project_1',
+        'USER' : 'user',
+        'PASSWORD' : 'ranger@#23',
+        'HOST': '172.16.107.162',
+        'PORT' : '3306',
+
     }
 }
 

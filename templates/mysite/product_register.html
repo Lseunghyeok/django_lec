@@ -1,7 +1,16 @@
 {% extends 'base.html' %}
 {% block header %}
+<style>
+    .btn-primary{
+        background-color:black;
+        color:white;
+        border:none;
+        width:100px;
+        height: 30px;
+        border-radius: 5px;
+    }
+</style>
 {% endblock %}
-
 {% block content %}
 <div class="row mt-5">
     <div class="col-12 text-center">
@@ -34,7 +43,7 @@
                 <input type="file" class="form-control" name="imgfile" id="imgfile">
             </div>
 
-            <button type="submit" class="btn btn-primary">상품등록</button>
+            <button type="submit" class="btn-primary" id="add_item">상품등록</button>
         </form>
     </div>
 </div>
