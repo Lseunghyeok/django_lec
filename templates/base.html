@@ -8,7 +8,7 @@
         <meta name="author" content="" />
         <title>Small Business - Start Bootstrap Template</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="{%static 'assets/favicon.ico' %}">
         <!-- Core theme CSS (includes Bootstrap)-->
         <link rel="stylesheet" type="text/css" href="{%static 'styles.css' %}">
         <link rel="stylesheet" type="text/css" href="{%static 'bootstrap.min.css'%}">
@@ -16,8 +16,13 @@
     </head>
     <body>
         {% include "navbar.html" %}
-        {% block content %}
-        {% endblock %}
-        {% include "footer.html" %}
+                {% block header %}
+                {% endblock %}
+                {% block content %}
+                {% endblock %}
+    {% include "footer.html" %}
     </body>
+<footer>
+
+</footer>
 </html>

@@ -1,7 +1,10 @@
-{% extends 'base.html' %}
-<html lang="ko">
+<!DOCTYPE html>
+{% include 'navbar.html' %}
+{% block content %}
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>메인페이지</title>
 
     <style>
@@ -23,59 +26,87 @@
             width: 14%; /* 왼쪽 구역 너비는 화면의 절반으로 설정 */
             float: left; /* 왼쪽으로 부유 */
         }
-
         .maincategory {
-            font:bold 16px "malgun gothic";
-            width:250px;
-            height:50px;
-            background: #ccc;
-            color:black;
-            line-height: 50px;
-            margin:0 auto;
+            width: 240px;
+            height: 40px;
+            margin: 0px 15px;
+        }
+        .maincategory .item {
+            width: 50%;
+            padding-bottom: 1px;
+            box-sizing: border-box;
+            line-height: 38px;
             text-align: center;
+            border-top: 1px solid rgb(221, 221, 221);
+            border-right: 1px solid rgb(221, 221, 221);
+            border-image: initial;
+            border-left: none;
+            color: rgb(0, 0, 0);
+            background-color: rgb(255, 255, 255);
+            font-weight: bold;
+            float: left;
+            cursor: pointer;
+            border-bottom: none;
+        }
+        .maincategory .brand {
+            width: 50%;
+            padding-bottom: 1px;
+            box-sizing: border-box;
+            line-height: 38px;
+            text-align: center;
+            border-top: 1px solid rgb(221, 221, 221);
+            border-right: 1px solid rgb(221, 221, 221);
+            border-bottom: 1px solid rgb(221, 221, 221);
+            border-image: initial;
+            border-left: none;
+            color: rgb(178, 178, 178);
+            background-color: rgb(243, 243, 243);
+            font-weight: bold;
+            float: left;
+            cursor: pointer;
         }
 
         .menu-toggle {
         display: none;
-    }
+        }
 
-    .menu-label {
-        background-color: #ffffff;
-        color: #000000;
-        padding: 6px;
-        cursor: pointer;
-        display: block;
-        width: 240px;
-    }
+        .menu-label {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 6px;
+            cursor: pointer;
+            display: block;
+            width: 240px;
+        }
 
-    .menu-label:hover {
-        background-color: #dadada;
-    }
+        .menu-label:hover {
+            background-color: #dadada;
+        }
 
-    /* 체크된 상태일 때 서브메뉴 표시 */
-    .menu-toggle:checked ~ .submenu {
-        display: block;
-    }
+        /* 체크된 상태일 때 서브메뉴 표시 */
+        .menu-toggle:checked ~ .submenu {
+            display: block;
+        }
 
-    .submenu {
-        display: none;
-        list-style: none;
-        padding: 0;
-    }
+        .submenu {
+            display: none;
+            list-style: none;
+            padding: 0;
+        }
 
-    .submenu li {
-        padding: 10px;
-        background-color: #ffffff;
-    }
+        .submenu li {
+            padding: 10px;
+            background-color: #ffffff;
+        }
 
-    .submenu a {
-        text-decoration: none;
-        color: #333;
-    }
+        .submenu a {
+            text-decoration: none;
+            color: #333;
+        }
 
-    .submenu li:hover {
-        background-color: #ddd;
-    }
+        .submenu li:hover {
+            background-color: #ddd;
+        }
 
         /* 오른쪽 구역 스타일 */
         .right {
@@ -93,19 +124,19 @@
     </style>
 </head>
 
-{% block content %}
 <body>
     <!-- 메인 페이지 -->
     <!-- 왼쪽 메뉴 영역 -->
 <div class="left">
         <div>
             <ul class="maincategory">
-
-
+                <li class="item" onclick="showitemcontent">품목</li>
+                <li class="brand" onclick="showbrandcontent">브랜드</li>
             </ul>
             <br>
-            <div class="categorylist">
-                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <!-- 품목 카테고리 -->
+            <div class="item">
+                <input type="checkbox" id="best-menu-toggle" class="menu-toggle">
                 <label for="menu-toggle" class="menu-label">인기</label>
                 <ul class="submenu">
                     <li><a href="#">맨투맨/스웨트셔츠</a></li>
@@ -123,7 +154,7 @@
                     <li><a href="#">백팩</a></li>
                     <li><a href="#">블루종</a></li>
                 </ul><hr>
-                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <input type="checkbox" id="top-menu-toggle" class="menu-toggle">
                 <label for="menu-toggle" class="menu-label">상의</label>
                 <ul class="submenu">
                     <li><a href="#">전체</a></li>
@@ -137,7 +168,7 @@
                     <li><a href="#">스포츠 상의</a></li>
                     <li><a href="#">기타 상의</a></li>
                 </ul><hr>
-                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <input type="checkbox" id="outerwear-menu-toggle" class="menu-toggle">
                 <label for="menu-toggle" class="menu-label">아우터</label>
                 <ul class="submenu">
                     <li><a href="#">전체</a></li>
@@ -159,7 +190,7 @@
                     <li><a href="#">롱패딩/롱헤비 아우터</a></li>
                     <li><a href="#">숏패팅/숏헤비 아우터</a></li>
                 </ul><hr>
-                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <input type="checkbox" id="bottom-menu-toggle" class="menu-toggle">
                 <label for="menu-toggle" class="menu-label">바지</label>
                 <ul class="submenu">
                     <li><a href="#">전체</a></li>
@@ -173,7 +204,7 @@
                     <li><a href="#">스포츠 하의</a></li>
                     <li><a href="#">기타 바지</a></li>
                 </ul><hr>
-                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <input type="checkbox" id="onepiece-menu-toggle" class="menu-toggle">
                 <label for="menu-toggle" class="menu-label">원피스</label>
                 <ul class="submenu">
                     <li><a href="#">전체</a></li>
@@ -181,7 +212,7 @@
                     <li><a href="#">미디 원피스</a></li>
                     <li><a href="#">맥시 원피스</a></li>
                 </ul><hr>
-                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <input type="checkbox" id="skirt-menu-toggle" class="menu-toggle">
                 <label for="menu-toggle" class="menu-label">스커트</label>
                 <ul class="submenu">
                     <li><a href="#">전체</a></li>
@@ -189,7 +220,7 @@
                     <li><a href="#">미디 스커트</a></li>
                     <li><a href="#">롱스커트</a></li>
                 </ul><hr>
-                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <input type="checkbox" id="snickers-menu-toggle" class="menu-toggle">
                 <label for="menu-toggle" class="menu-label">스니커즈</label>
                 <ul class="submenu">
                     <li><a href="#">전체</a></li>
@@ -198,7 +229,7 @@
                     <li><a href="#">스포츠 스니커즈</a></li>
                     <li><a href="#">기타 스니커즈</a></li>
                 </ul><hr>
-                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <input type="checkbox" id="shoes-menu-toggle" class="menu-toggle">
                 <label for="menu-toggle" class="menu-label">신발</label>
                 <ul class="submenu">
                     <li><a href="#">전체</a></li>
@@ -214,7 +245,7 @@
                     <li><a href="#">부츠</a></li>
                     <li><a href="#">신발 용품</a></li>
                 </ul><hr>
-                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <input type="checkbox" id="bag-menu-toggle" class="menu-toggle">
                 <label for="menu-toggle" class="menu-label">가방</label>
                 <ul class="submenu">
                     <li><a href="#">전체</a></li>
@@ -232,7 +263,7 @@
                     <li><a href="#">지갑/머니클립</a></li>
                     <li><a href="#">클러치 백</a></li>
                 </ul><hr>
-                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <input type="checkbox" id="womanbag-menu-toggle" class="menu-toggle">
                 <label for="menu-toggle" class="menu-label">여성 가방</label>
                 <ul class="submenu">
                     <li><a href="#">전체</a></li>
@@ -246,7 +277,7 @@
                     <li><a href="#">지갑/머니클립</a></li>
                     <li><a href="#">가방 소품</a></li>
                 </ul><hr>
-                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <input type="checkbox" id="sportsgoods-menu-toggle" class="menu-toggle">
                 <label for="menu-toggle" class="menu-label">스포츠 용품</label>
                 <ul class="submenu">
                     <li><a href="#">전체</a></li>
@@ -265,7 +296,7 @@
                     <li><a href="#">캠핑용품</a></li>
                     <li><a href="#">낚시용품</a></li>
                 </ul><hr>
-                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <input type="checkbox" id="hat-menu-toggle" class="menu-toggle">
                 <label for="menu-toggle" class="menu-label">모자</label>
                 <ul class="submenu">
                     <li><a href="#">전체</a></li>
@@ -277,14 +308,14 @@
                     <li><a href="#">트루퍼</a></li>
                     <li><a href="#">기타 모자</a></li>
                 </ul><hr>
-                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <input type="checkbox" id="socks-menu-toggle" class="menu-toggle">
                 <label for="menu-toggle" class="menu-label">양말/레그웨어</label>
                 <ul class="submenu">
                     <li><a href="#">전체</a></li>
                     <li><a href="#">양말</a></li>
                     <li><a href="#">스타킹</a></li>
                 </ul><hr>
-                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <input type="checkbox" id="inner-menu-toggle" class="menu-toggle">
                 <label for="menu-toggle" class="menu-label">속옷</label>
                 <ul class="submenu">
                     <li><a href="#">전체</a></li>
@@ -294,7 +325,7 @@
                     <li><a href="#">남성 속옷</a></li>
                     <li><a href="#">홈웨어</a></li>
                 </ul><hr>
-                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <input type="checkbox" id="glasses-menu-toggle" class="menu-toggle">
                 <label for="menu-toggle" class="menu-label">선글라스/안경테</label>
                 <ul class="submenu">
                     <li><a href="#">전체</a></li>
@@ -302,7 +333,7 @@
                     <li><a href="#">선글라스</a></li>
                     <li><a href="#">안경 소품</a></li>
                 </ul><hr>
-                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <input type="checkbox" id="accessories-menu-toggle" class="menu-toggle">
                 <label for="menu-toggle" class="menu-label">액세서리</label>
                 <ul class="submenu">
                     <li><a href="#">전체</a></li>
@@ -315,7 +346,7 @@
                     <li><a href="#">장갑</a></li>
                     <li><a href="#">기타 액세서리</a></li>
                 </ul><hr>
-                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <input type="checkbox" id="watch-menu-toggle" class="menu-toggle">
                 <label for="menu-toggle" class="menu-label">시계</label>
                 <ul class="submenu">
                     <li><a href="#">전체</a></li>
@@ -325,7 +356,7 @@
                     <li><a href="#">시계 용품</a></li>
                     <li><a href="#">기타 시계</a></li>
                 </ul><hr>
-                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <input type="checkbox" id="jewelry-menu-toggle" class="menu-toggle">
                 <label for="menu-toggle" class="menu-label">주얼리</label>
                 <ul class="submenu">
                     <li><a href="#">전체</a></li>
@@ -337,7 +368,7 @@
                     <li><a href="#">브로치/배지</a></li>
                     <li><a href="#">헤어 액세서리</a></li>
                 </ul><hr>
-                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <input type="checkbox" id="beauty-menu-toggle" class="menu-toggle">
                 <label for="menu-toggle" class="menu-label">뷰티</label>
                 <ul class="submenu">
                     <li><a href="#">전체</a></li>
@@ -354,7 +385,7 @@
                     <li><a href="#">미용 소품</a></li>
                     <li><a href="#">덴탈케어</a></li>
                 </ul><hr>
-                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <input type="checkbox" id="digital-menu-toggle" class="menu-toggle">
                 <label for="menu-toggle" class="menu-label">디지털/테크</label>
                 <ul class="submenu">
                     <li><a href="#">전체</a></li>
@@ -372,7 +403,7 @@
                     <li><a href="#">게임</a></li>
                     <li><a href="#">기타 디지털/테크</a></li>
                 </ul><hr>
-                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <input type="checkbox" id="living-menu-toggle" class="menu-toggle">
                 <label for="menu-toggle" class="menu-label">리빙</label>
                 <ul class="submenu">
                     <li><a href="#">전체</a></li>
@@ -387,7 +418,7 @@
                     <li><a href="#">사무용품</a></li>
                     <li><a href="#">기타 라이프</a></li>
                 </ul><hr>
-                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <input type="checkbox" id="culture-menu-toggle" class="menu-toggle">
                 <label for="menu-toggle" class="menu-label">컬처</label>
                 <ul class="submenu">
                     <li><a href="#">전체</a></li>
@@ -397,7 +428,7 @@
                     <li><a href="#">아트</a></li>
                     <li><a href="#">기타 컬처</a></li>
                 </ul><hr>
-                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <input type="checkbox" id="pet-menu-toggle" class="menu-toggle">
                 <label for="menu-toggle" class="menu-label">반려동물</label>
                 <ul class="submenu">
                     <li><a href="#">전체</a></li>
@@ -407,6 +438,11 @@
                     <li><a href="#">반려동물 푸드</a></li>
                 </ul><hr>
             </div>
+            <!-- 브랜드 카테고리 -->
+            <div class="brand">브랜드
+                <p>브랜드명 입력</p>
+            </div>
+
         </div>
     </div>
     <!-- //왼쪽 메뉴 영역 -->
@@ -452,7 +488,56 @@
         </div>
     </div>
     <!-- //오른쪽 메뉴 영역 -->
+
+<script>
+    function showitemcontent(){
+        var itemcontent = document.getElementById('itemcontent');
+        var brandcontent = document.getElementById('brandcontent');
+
+        itemcontent.style.display = 'block';
+        brandcontent.style.display = 'none';
+    }
+    function showbrandcontent(){
+        var itemcontent = document.getElementById('itemcontent');
+        var brandcontent = document.getElementById('brandcontent');
+
+        itemcontent.style.display = 'none';
+        brandcontent.style.display = 'block';
+    }
+    // 입력 필드 값 변경 이벤트를 감지하여 버튼 활성화 상태 업데이트
+    orderNameInput.addEventListener('input', checkInputs);
+    orderNumberInput.addEventListener('input', checkInputs);
+
+    function showitemcontent() {
+        var itemcontent = document.getElementById('itemcontent');
+        var brandcontent = document.getElementById('brandcontent');
+
+        itemcontent.style.display = 'block';
+        brandcontent.style.display = 'none';
+
+        // 스타일 변경
+        document.querySelector('.item').style.fontWeight = 'bold';
+        document.querySelector('.brand').style.fontWeight = 'normal';
+        document.querySelector('.item').style.color = 'black';
+        document.querySelector('.brand').style.color = 'gray';
+    }
+
+    function showbrandcontent() {
+        var itemcontent = document.getElementById('itemcontent');
+        var brandcontent = document.getElementById('brandcontent');
+
+        itemcontent.style.display = 'none';
+        brandcontent.style.display = 'block';
+
+        // 스타일 변경
+        document.querySelector('.item').style.fontWeight = 'normal';
+        document.querySelector('.brand').style.fontWeight = 'bold';
+        document.querySelector('.item').style.color = 'gray';
+        document.querySelector('.brand').style.color = 'black';
+    }
+</script>
 </body>
+
 </html>
 {% endblock %}
 
