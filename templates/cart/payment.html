@@ -1,10 +1,114 @@
 <!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<div id="body">
+    <div class="middle">
+        <div class="ordtitle">
+            <h3 class="title">주문/결제</h3>
+        </div>
+        <hr>
+        <!--주문자 정보-->
+        <div class="customer">
+            <div class="customer_root">
+                <h4 class="customer_4">구매자 정보</h4>
+                <table class="customer_table">
+                    <tbody>
+                        <tr>
+                            <td class="col_1">이름</td>
+                            <td class="col_2"><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td class="col_1">이메일</td>
+                            <td class="col2"><input type="email" name="email" id="email"></td>
+                        </tr>
+                        <tr>
+                            <td class="col_1">전화번호</td>
+                            <td class="col_2">
+                                <div data-component="customer_phone">
+                                    <div class="customer-phone__root">
+                                        <div class="customer-phone-form-tel">
+                                            <form data-customer-phone-form-tel>
+                                                <div>
+                                                    <input type="tel" class="customer_phone-input-tel" data-customer_phone-input-tel value="">
+                                                    <button type="submit" data-customer-phone-submit-tel>수정</button>
+                                                    <span class="customer-phone__tel-desc">쿠폰/티켓정보는 구매한 분의 번호로 전송됩니다.</span>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div data-component="customer-phone-noties">
+                                            <p class="customer-phone__noti ">* 인증 번호를 못 받았다면, 번호 차단 및 스팸 설정을 확인해 주세요.</p>
+                                        </div>
+                                        <div data-component="customer-phone-form-auth"></div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--배달 정보-->
+        <div data-component="deliveryAddress">
+            <h4 class="delivery-address__caption-header">받는 사람 정보
+            <button class="delivery-address__popup-list-button" type="button" data-delivery-address__popup-list-button>배송지 변경</button>
+            </h4>
+
+            <table class="delivery-address">
+                <tbody>
+                <tr>
+                    <th class="delivery-address__th">이름</th>
+                    <td class="delivery-address__td">
+                        <span class="delivery-address__name">부천대학교</span>
+                        <span class="delivery-address__type-label">기본 배송정보</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="delivery_address_th">배송주소</th>
+                    <td class="delivery_address_td">
+                        경기도 부천시 신흥로56번길 25 (심곡동 424)
+                        <div class="address_error_message">
+                            <span class="address_error_icon">!</span>
+                            <p class="address-error_message">배송이 불가능한 주소입니다. 다른 배송지를 입력하거나 선택해주세요.</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="delivery_phone_number">연락처</th>
+                    <td class="delivery-phone_number" id="phoneNumber">032-610-0114</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--결제 정보-->
+        <div class="pay-price-section">
+            <h2 class="checkout">결제정보</h2><hr>
+            <tbody>
+                <tr class="payOrder-wrap">
+                    <th class="wrap-title">
+                        총 상품가격
+                    </th>
+                    <td>
+                        <div class="payOrder">
+                            <strong class="price">
+                                <span id="totalPrice" class="total_price">
+                                    {{ total }}원
+                                </span>
+                            </strong>
+                        </div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </div>
+    </div>
+</div>
 </body>
 </html>
+{% endblock %}

@@ -61,3 +61,6 @@ def cart_remove(request , product_id):
     else:
         cart_item.delete()
     return redirect('cart:cart_detail')
+
+def payment(request):
+    return render(request, 'cart/payment.html')
