@@ -54,6 +54,8 @@
                 </table>
             </div>
         </div>
+        <hr>
+
         <!--배달 정보-->
         <div data-component="deliveryAddress">
             <h4 class="delivery-address__caption-header">받는 사람 정보
@@ -86,6 +88,27 @@
                 </tbody>
             </table>
         </div>
+        <hr>
+        <!--배송 건수-->
+        <div class="delivery_count">
+            <div class="count_title">배송 될 물건</div>
+            <div class="groupbox">
+                <div class="datebox">
+                    <strong data-bundle-info__cdm-pdd>11월 17일</strong>
+                    <span class="deliverydate">도착보장</span>
+                </div>
+                <div class="item-list">
+                    <div class="itembox">
+
+                        <div class="item">
+                            <p></p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
         <!--결제 정보-->
         <div class="pay-price-section">
             <h2 class="checkout">결제정보</h2><hr>
@@ -104,10 +127,85 @@
                         </div>
                     </td>
                 </tr>
+                <tr>
+                    <th class="cash">보유 캐시</th>
+                    <td>
+                        <div>
+                            <strong class="price">
+                                <span class="totalPrice">0</span>
+                                <span>원</span>
+                            </strong>
+                            <span class="message">
+                                <span class="usable">
+                                    보유:
+                                    <strong class="value" data-price="100000">100000</strong>
+                                    <span class="unit">원</span>
+                                </span>
+                            </span>
+                            <button class="insert_cash_toggle">보유 캐시 입력</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="wrap_title">총 결제금액</th>
+                    <td>
+                        <div class="payprice">
+                            <strong class="Price">
+                                <span id="totalPayPrice">120,000</span>
+                                <span class="unit">원</span>
+                            </strong>
 
+                        </div>
+                    </td>
+                </tr>
+                <tr id="paySel" class="payType">
+                    <th class="wrap_title">결제방법</th>
+                    <div class="tpyebox">
+                        <div class="type_list_wrapper">
+                            <ul class="list">
+                                <li id="rocketPayBox" class="type-selector-li selected-pay-type">
+                                    <input class="type-selector-radio" type="radio" name="paytype" id="payType8" value="ROCKET_BANK">
+                                    <label class="type-selector-label type-selector-label--bank">
+                                        <span class="type-selector-label__text">계좌이체</span>
+                                    </label>
+                                </li>
+
+                                <li id="rocketPayCardBox" class="type-selector-li">
+                                    <input class="type-selector-radio" type="radio" name="paytype" id="payType10" value="ROCKET_CARD">
+                                    <label class="type-selector-label type-selector-label--card">
+                                        <span class="type-selector-label__text">신용/체크카드</span>
+                                    </label>
+                                </li>
+
+                                <li id="cardPayBox" class="type-selector-li">
+                                    <input class="type-selector-radio" type="radio" name="paytype" id="payType1" value="CARD">
+                                    <label class="type-selector-label">
+                                        <span class="type-selector-label__text">법인카드</span>
+                                    </label>
+                                </li>
+
+                                <li id="phonePayBox" class="type-selector-li">
+                                    <input class="type-selector-radio" type="radio" name="paytype" id="payType6" value="PHONE">
+                                    <label class="type-selector-label">
+                                        <span class="type-selector-label__text">휴대폰</span>
+                                    </label>
+                                </li>
+
+                                <li id="virtualAccountPayBox" class="type-selector-li">
+                                    <input class="type-selector-radio" type="radio" name="paytype" id="payType7" value="VIRTUALACCOUNT">
+                                    <label class="type-selector-label">
+                                        <span class="type-selector-label__text">무통장입금(가상계좌)</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </tr>
             </tbody>
         </div>
     </div>
+
 </div>
 </body>
 </html>
